@@ -8,7 +8,6 @@ import Backdrop from "./components/navbar/backdrop";
 import Hero from './components/hero/hero';
 import Portfolio from "./components/portfolio/portfolio";
 import About from "./components/about/about";
-import Blog from "./components/blog/blog";
 import Contact from "./components/contact/contact";
 import Footer from "./components/footer/footer";
  
@@ -69,7 +68,6 @@ class App extends React.Component {
         <Hero />
         <Portfolio />
         <About />
-        <Blog />
         <Contact />
         <Footer />
       </div>

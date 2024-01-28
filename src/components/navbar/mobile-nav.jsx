@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-scroll";
 // SCSS
 import "./navbar.scss";
@@ -35,7 +34,7 @@ const mobileNav = (props) => (
             duration={500}
             onClick={props.closeMobileMenu}
           >
-            WORK
+            SERVICIOS
           </Link>
         </li>
         <li className="flex-center">
@@ -48,20 +47,7 @@ const mobileNav = (props) => (
             duration={500}
             onClick={props.closeMobileMenu}
           >
-            ABOUT
-          </Link>
-        </li>
-        <li className="flex-center">
-          <Link
-            activeClass="active-link"
-            to="blog"
-            spy={true}
-            smooth={true}
-            offset={-70}
-            duration={500}
-            onClick={props.closeMobileMenu}
-          >
-            BLOG
+            SOBRE NOSOTROS
           </Link>
         </li>
         <li className="flex-center">
@@ -74,9 +60,22 @@ const mobileNav = (props) => (
             duration={500}
             onClick={props.closeMobileMenu}
           >
-            CONTACT
+            CONTACTOS
           </Link>
         </li>
+        <li className="flex-center">
+        <Link
+          activeClass="active-link"
+          to="blog"
+          spy={true}
+          smooth={true}
+          offset={-70}
+          duration={500}
+          onClick={props.closeMobileMenu}
+        >
+          PROFORMA DE CONTRATO
+        </Link>
+      </li>
       </ul>
     </div>
   </div>

@@ -1,4 +1,3 @@
-import React from "react";
 import { Row, Col } from "react-flexbox-grid";
 import "./about.scss";
 // Components
@@ -12,7 +11,7 @@ import Person02 from "../../assets/about/person02.png";
 const about = () => (
   <div id="about">
     <div className="wrapper">
-      <Title title="ABOUT US." />
+      <Title title="Quienes somos?" />
       <p className="font12">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt<br></br>ut labore et dolore magna aliqua.

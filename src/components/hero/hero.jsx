@@ -1,4 +1,3 @@
-import React from "react";
 import { Row, Col } from "react-flexbox-grid";
 // SCSS
 import "./hero.scss";
@@ -13,10 +12,10 @@ const hero = () => (
       <Row>
         <Col md={12} lg={6}>
           <div className="hero-info">
-            <h1 className="weight800 font60">Hello!!!</h1>
-            <h1 className="weight800 font60">
-              We Are Creative Digital Agency.
-            </h1>
+            <h1 className="weight800 font60">Bienvenidos!!!</h1>
+            <h4 className="weight800 font40">
+              Somos EBC Soluciones Tecnológicas.
+            </h4>
             <p className="font12">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
               doeiusmod tempor incididunt ut labore et dolore magna aliqua
