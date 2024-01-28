@@ -1,35 +1,80 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react';
+import './style/App.scss';
 
-function App() {
-  const [count, setCount] = useState(0)
+// Components
+import DesktopNav from './components/navbar/desktop-nav';
+import MobileNav from './components/navbar/mobile-nav';
+import Backdrop from "./components/navbar/backdrop";
+import Hero from './components/hero/hero';
+import Portfolio from "./components/portfolio/portfolio";
+import About from "./components/about/about";
+import Blog from "./components/blog/blog";
+import Contact from "./components/contact/contact";
+import Footer from "./components/footer/footer";
+ 
+class App extends React.Component {
+  state = {
+    userIsScrolled: false,
+    mobileNavbarOpen: false,
+  };
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+  componentDidMount() {
+    window.addEventListener("scroll", this.userIsScrolled);
+  }
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.userIsScrolled);
+  }
+
+  // Detect if user is scorlled down (used for add/disable extra large navbar)
+  userIsScrolled = () => {
+    if (window.pageYOffset > 80) {
+      this.setState({ userIsScrolled: true });
+    } else {
+      this.setState({ userIsScrolled: false });
+    }
+  };
+  // On closeMobileMenu click close navbar
+  closeMobileMenu = () => {
+    this.setState({ mobileNavbarOpen: false });
+  };
+  // Mobile menu handler
+  mobileMenuOpen = () => {
+    this.setState({ mobileNavbarOpen: true });
+  };
+
+  render() {
+    // BACKDROP RENDER
+    let backdrop = <Backdrop closeMobileMenu={this.closeMobileMenu} />;
+    if (this.state.mobileNavbarOpen) {
+      backdrop = (
+        <Backdrop closeMobileMenu={this.closeMobileMenu} isOpen={true} />
+      );
+    }
+    // MOBILE NAVBAR RENDER
+    let mobileNavbar = <MobileNav />;
+    if (this.state.mobileNavbarOpen) {
+      mobileNavbar = (
+        <MobileNav isOpen={true} closeMobileMenu={this.closeMobileMenu} />
+      );
+    }
+
+    return (
+      <div className="App">
+        {mobileNavbar}
+        {backdrop}
+        <DesktopNav
+          userIsScrolled={this.state.userIsScrolled}
+          mobileMenuOpen={this.mobileMenuOpen}
+        />
+        <Hero />
+        <Portfolio />
+        <About />
+        <Blog />
+        <Contact />
+        <Footer />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    );
+  }
 }
 
-export default App
+export default App;
