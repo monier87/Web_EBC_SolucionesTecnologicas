@@ -37,17 +37,11 @@ class Contact extends React.Component {
       message: this.state.message,
     };
 
-
-
-
     // YOUR EMAIL.JS API KEY IN FORMAT user_xxxxxxxxxxxxxxxxxx
     let API_KEY = "";
 
     // YOUR EMAIL.JS TEMPLATE ID
     let TEMPLATE_ID = "";
-
-
-
 
     emailjs.send("default_service", TEMPLATE_ID, template_params, API_KEY).then(
       function (response) {
@@ -68,22 +62,21 @@ class Contact extends React.Component {
     this.setState({ successModal: true, sending: false });
     this.resetForm();
   };
+
   // ERROR MODAL
   showErrorModal = () => {
     this.setState({ errorModal: true, sending: false });
     this.resetForm();
   };
+
   // RESET CONTACT FORM
   resetForm() {
     this.setState({ name: "", email: "", message: "" });
   }
+
   // CLOSE ALL MODALS
   closeModal = () => {
     this.setState({ successModal: false, errorModal: false });
-  };
-
-  resetForm = () => {
-    this.setState({ name: "", email: "", message: "" });
   };
 
   render() {
@@ -94,6 +87,7 @@ class Contact extends React.Component {
         </button>
       </div>
     );
+
     if (this.state.sending) {
       submitButtonRender = (
         <div className="small__button sending-btn">
@@ -103,12 +97,15 @@ class Contact extends React.Component {
         </div>
       );
     }
+
     let modalRender = null;
+
     if (this.state.successModal) {
       modalRender = <Modal closeModal={this.closeModal} status="success" />;
     } else if (this.state.errorModal) {
       modalRender = <Modal closeModal={this.closeModal} status="error" />;
     }
+
     return (
       <div id="contact">
         {modalRender}
@@ -148,6 +145,6 @@ class Contact extends React.Component {
       </div>
     );
   }
-};
+}
 
 export default Contact;
