@@ -25,7 +25,7 @@ const hero = () => (
         </Col>
         <Col md={12} lg={6}>
           <div className="hero-image">
-            <img src={HeroImage} alt="hero" />
+            <img src={HeroImage} style={{ width: '600px' }} alt="hero" />
           </div>
         </Col>
       </Row>

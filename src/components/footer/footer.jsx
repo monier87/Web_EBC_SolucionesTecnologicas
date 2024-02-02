@@ -2,18 +2,18 @@ import { Row, Col } from "react-flexbox-grid";
 import { Link } from "react-scroll";
 import "./footer.scss";
 
-import Logo from '../../assets/footer/logo.png';
+//import Logo from '../../assets/footer/LogoFooter.png';
 import Arrow from '../../assets/footer/arrow.svg';
 
 const partnerBox = () => (
   <div className="footer">
     <div className="wrapper">
       <Row>
-        <Col xs={12} sm={6} md={6}>
+        <Col xs={6} sm={6} md={6}>
           <div className="footer-box">
-            <img src={Logo} alt="logo" />
-            <p>© 2024 - EBC Soluciones Tecnológicas</p>
-            <p>Todos los derechos reservados</p>
+            
+            <p>© 2024 - Todos los derechos reservados </p>
+            <p>EBC Soluciones Tecnológicas</p>
           </div>
         </Col>
         <Col xs={12} sm={6} md={6}>
