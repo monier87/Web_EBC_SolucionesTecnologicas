@@ -1,5 +1,3 @@
-import React from "react";
-
 import "./blogBox.scss";
 
 const blog = (props) => (

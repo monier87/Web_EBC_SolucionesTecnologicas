@@ -1,5 +1,3 @@
-import React from "react";
-
 import "./teamBox.scss";
 
 const teamBox = (props) => (

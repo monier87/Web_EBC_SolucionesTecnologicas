@@ -1,4 +1,3 @@
-import React from "react";
 import { Row, Col } from "react-flexbox-grid";
 import "./contactInfo.scss";
 
@@ -17,22 +16,22 @@ const contactInfo = () => (
         <Col xs={12} lg={3} className="contact__info">
           <ContactInfoBox
             icon={ContactInfoIcon1}
-            textLine1="1211 Awesome Avenue,"
-            textLine2="NY USD"
+            textLine1="Calle Los Maceos #234 % San Agustin y Reloj,"
+            textLine2="Santiago de Cuba"
           />
         </Col>
         <Col xs={12} lg={3} className="contact__info">
           <ContactInfoBox
             icon={ContactInfoIcon2}
-            textLine1="+00 123 - 456 -78"
-            textLine2="+00 987 - 654 -32"
+            textLine1="+5359923921"
+            textLine2="+5352401690"
           />
         </Col>
         <Col xs={12} lg={3} className="contact__info">
           <ContactInfoBox
             icon={ContactInfoIcon3}
-            textLine1="mint@mintmail.com"
-            textLine2=""
+            textLine1="ronalebc.2021@gmail.com"
+            textLine2="aniac7418@gmail.com"
           />
         </Col>
       </Row>

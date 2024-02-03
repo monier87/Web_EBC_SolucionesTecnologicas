@@ -145,7 +145,7 @@ class Portfolio extends React.Component {
     return (
       <div id="portfolio">
         <div className="wrapper">
-          <Title title="WORK SHOWCASE." />
+          <Title title="Muestra de Servicios." />
           <Row>
             <Col xs={12} sm={12} md={8} lg={9}>
               <div className="portfolio__nav">
@@ -183,7 +183,7 @@ class Portfolio extends React.Component {
             {projectsRender}
           </Masonry>
           <Row className="flex-center padding40">
-            <Button label="HAVE WORK FOR US?" target={"contact"} />
+            <Button label="Tienes trabajo para nosotros?" target={"contact"} />
           </Row>
         </div>
       </div>

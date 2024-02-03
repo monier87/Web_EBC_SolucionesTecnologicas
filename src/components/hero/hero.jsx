@@ -1,9 +1,7 @@
+import { motion } from "framer-motion";
 import { Row, Col } from "react-flexbox-grid";
-// SCSS
 import "./hero.scss";
-//Assets
 import HeroImage from '../../assets/hero/hero-image.png';
-//Components
 import Button from '../ui-components/button/button';
 
 const hero = () => (
@@ -12,7 +10,17 @@ const hero = () => (
       <Row>
         <Col md={12} lg={6}>
           <div className="hero-info">
-            <h1 className="weight800 font60">Bienvenidos!!!</h1>
+            <motion.h1
+              initial={{ opacity: 0, y: -50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
+              whileHover={{ scale: 1.1, opacity: 0.8, transition: { duration: 0.2 } }}
+              whileTap={{ scale: 0.9 }}
+              className="weight800 font60"
+                    
+            >
+              Bienvenidos!!!
+            </motion.h1>
             <h4 className="weight800 font40">
               Somos EBC Soluciones Tecnológicas.
             </h4>
