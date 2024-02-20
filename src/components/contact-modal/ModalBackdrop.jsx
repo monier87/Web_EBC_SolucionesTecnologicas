@@ -1,4 +1,3 @@
-import React from "react";
 import "./modal.scss";
 
 const backdrop = (props) => (

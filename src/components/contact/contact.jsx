@@ -38,10 +38,10 @@ class Contact extends React.Component {
     };
 
     // YOUR EMAIL.JS API KEY IN FORMAT user_xxxxxxxxxxxxxxxxxx
-    let API_KEY = "";
+    let API_KEY = "5pqnba4Z3-Tp54zsW";
 
     // YOUR EMAIL.JS TEMPLATE ID
-    let TEMPLATE_ID = "";
+    let TEMPLATE_ID = "formulario_contacto";
 
     emailjs.send("default_service", TEMPLATE_ID, template_params, API_KEY).then(
       function (response) {
@@ -124,7 +124,7 @@ class Contact extends React.Component {
                 <textarea
                   rows="6"
                   cols="50"
-                  placeholder="Mensaje..."
+                  placeholder="Mensaje﻿..."
                   required
                   name="message"
                   value={this.state.message}

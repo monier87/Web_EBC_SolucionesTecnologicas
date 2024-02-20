@@ -27,6 +27,19 @@ const mobileNav = (props) => (
     </div>
     <div className="mobile__navbar-menu">
       <ul>
+      <li className="flex-center">
+      <Link
+        activeClass="active-link"
+        to="about"
+        spy={true}
+        smooth={true}
+        offset={-70}
+        duration={500}
+        onClick={props.closeMobileMenu}
+      >
+        SOBRE NOSOTROS
+      </Link>
+    </li>
         <li className="flex-center">
           <Link
             activeClass="active-link"
@@ -38,19 +51,6 @@ const mobileNav = (props) => (
             onClick={props.closeMobileMenu}
           >
             SERVICIOS
-          </Link>
-        </li>
-        <li className="flex-center">
-          <Link
-            activeClass="active-link"
-            to="about"
-            spy={true}
-            smooth={true}
-            offset={-70}
-            duration={500}
-            onClick={props.closeMobileMenu}
-          >
-            SOBRE NOSOTROS
           </Link>
         </li>
         <li className="flex-center">

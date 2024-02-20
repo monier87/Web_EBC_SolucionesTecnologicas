@@ -1,4 +1,3 @@
-import React from "react";
 import "./modal.scss";
 
 const successModal = (props) => (

@@ -4,6 +4,7 @@ import "./hero.scss";
 import HeroImage from '../../assets/hero/hero-image.png';
 import Button from '../ui-components/button/button';
 
+
 const hero = () => (
   <div className="hero" id="hero">
     <div className="wrapper">
