@@ -1,9 +1,12 @@
 import { Link } from "react-scroll";
+
 // SCSS
 import "./navbar.scss";
 // Assets
 import CloseIcons from '../../assets/navbar/mobile-close.svg';
-import Logo from "../../assets/navbar/logo-yellow.svg";
+import Logo from '../../assets/footer/LogoFooter.png';
+
+const handleDownload = () => window.open("/Proforma.doc", "_blank")
 
 const mobileNav = (props) => (
   <div className={`mobile__navbar ${props.isOpen ? "mobile__open" : ""}`}>
@@ -71,9 +74,9 @@ const mobileNav = (props) => (
           smooth={true}
           offset={-70}
           duration={500}
-          onClick={props.closeMobileMenu}
+          onClick={handleDownload} href='#'
         >
-          PROFORMA DE CONTRATO
+           DESCARGAR PROFORMA
         </Link>
       </li>
       </ul>

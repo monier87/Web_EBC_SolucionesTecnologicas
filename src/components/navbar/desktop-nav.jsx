@@ -4,6 +4,8 @@ import { Link } from "react-scroll";
 import Logo from '../../assets/footer/LogoFooter.png';
 import MobileMenuIcon from '../../assets/navbar/mobile-menu.svg';
 
+const handleDownload = () => window.open("/Proforma.doc", "_blank")
+
 const desktopNav = (props) => (
   <nav className={`Navbar ${!props.userIsScrolled ? "extraLargeNavbar" : ""}`} style={{ backgroundColor: '#f0f0f0' }}>
     <div className="wrapper flex-s-between">
@@ -19,23 +21,21 @@ const desktopNav = (props) => (
         <ul className="flex-s-between">
           <li>
             <Link activeClass="active-link" to="portfolio" spy={true} smooth={true} offset={-70} duration={500}>
-              <span style={{ fontSize: '20px' }}>SERVICIOS</span>
+              <span style={{ fontSize: '15px' }}>SERVICIOS</span>
             </Link>
           </li>
           <li>
             <Link activeClass="active-link" to="about" spy={true} smooth={true} offset={-70} duration={500}>
-              <span style={{ fontSize: '20px' }}>SOBRE NOSOTROS</span>
+              <span style={{ fontSize: '15px' }}>SOBRE NOSOTROS</span>
             </Link>
           </li>
           <li>
             <Link activeClass="active-link" to="contact" spy={true} smooth={true} offset={-70} duration={500}>
-              <span style={{ fontSize: '25px' }}>CONTACTOS</span>
+              <span style={{ fontSize: '15px' }}>CONTACTOS</span>
             </Link>
           </li>
-          <li>
-            <Link activeClass="active-link" to="contact" spy={true} smooth={true} offset={-70} duration={500}>
-              <span style={{ fontSize: '25px' }}>PROFORMA CONTRATO</span>
-            </Link>
+          <li onClick={handleDownload} href='#'>
+              <span style={{ fontSize: '15px' }}>DESCARGAR PROFORMA</span>
           </li>
         </ul>
       </div>

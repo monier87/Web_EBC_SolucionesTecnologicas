@@ -28,7 +28,7 @@ const hero = () => (
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
               doeiusmod tempor incididunt ut labore et dolore magna aliqua
             </p>
-            <Button label="SEND MESSAGE" target={"contact"} />
+            <Button label="ENVIAR MENSAJE" target={"contact"} />
           </div>
         </Col>
         <Col md={12} lg={6}>
