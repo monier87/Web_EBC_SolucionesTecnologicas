@@ -1,7 +1,7 @@
-import React from "react";
+import { useRef, useState } from "react";
 import { Row, Col } from "react-flexbox-grid";
+import emailjs from '@emailjs/browser';
 import "./contact.scss";
-import * as emailjs from "emailjs-com";
 import Title from "../ui-components/title/title";
 import ContactInfo from './contactInfo/contactInfo';
 import ContactSocial from './contactInfo/contactSocial';
@@ -9,142 +9,121 @@ import Modal from '../contact-modal/Modal';
 
 import ContactBackground from '../../assets/contact/bg.png';
 
-class Contact extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: "",
-      email: "",
-      message: "",
-      sending: false,
-      successModal: false,
-      errorModal: false,
-    };
-  }
+const Contact = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [sending, setSending] = useState(false);
+  const [successModal, setSuccessModal] = useState(false);
+  const [errorModal, setErrorModal] = useState(false);
 
-  inputHandler = (event) => {
-    this.setState({ [event.target.name]: event.target.value });
+  const form = useRef();
+
+  const inputHandler = (event) => {
+    const { name, value } = event.target;
+    if (name === "user_name") setName(value);
+    else if (name === "user_email") setEmail(value);
+    else if (name === "message") setMessage(value);
   };
 
-  handleSubmit = (e) => {
-    var self = this;
-    this.setState({ sending: true });
+  const handleSubmit = (e) => {
     e.preventDefault();
+    setSending(true);
 
-    var template_params = {
-      name: this.state.name,
-      email: this.state.email,
-      message: this.state.message,
-    };
-
-    // YOUR EMAIL.JS API KEY IN FORMAT user_xxxxxxxxxxxxxxxxxx
-    let API_KEY = "5pqnba4Z3-Tp54zsW";
-
-    // YOUR EMAIL.JS TEMPLATE ID
-    let TEMPLATE_ID = "formulario_contacto";
-
-    emailjs.send("default_service", TEMPLATE_ID, template_params, API_KEY).then(
-      function (response) {
-        if (response.status === 200) {
-          self.showSuccessModal();
-        } else {
-          self.showErrorModal();
+    emailjs
+      .sendForm('service_5ga4l79', 'template_bfkjmed', form.current, {
+        publicKey: '5pqnba4Z3-Tp54zsW',
+      })
+      .then(
+        () => {
+          setSending(false);
+          setSuccessModal(true);
+          resetForm();
+        },
+        (error) => {
+          setSending(false);
+          setErrorModal(true);
+          resetForm();
+          console.error('FAILED...', error.text);
         }
-      },
-      function (error) {
-        self.showErrorModal();
-      }
-    );
-  };
-
-  // SUCCESS MODAL
-  showSuccessModal = () => {
-    this.setState({ successModal: true, sending: false });
-    this.resetForm();
-  };
-
-  // ERROR MODAL
-  showErrorModal = () => {
-    this.setState({ errorModal: true, sending: false });
-    this.resetForm();
-  };
-
-  // RESET CONTACT FORM
-  resetForm() {
-    this.setState({ name: "", email: "", message: "" });
-  }
-
-  // CLOSE ALL MODALS
-  closeModal = () => {
-    this.setState({ successModal: false, errorModal: false });
-  };
-
-  render() {
-    let submitButtonRender = (
-      <div className="small__button">
-        <button aria-label="send message" type="submit" value="Send Message">
-          Enviar Mensaje
-        </button>
-      </div>
-    );
-
-    if (this.state.sending) {
-      submitButtonRender = (
-        <div className="small__button sending-btn">
-          <div className="flex-center">
-            <div className="sbl-circ"></div>
-          </div>
-        </div>
       );
-    }
+  };
 
-    let modalRender = null;
+  const resetForm = () => {
+    setName("");
+    setEmail("");
+    setMessage("");
+  };
 
-    if (this.state.successModal) {
-      modalRender = <Modal closeModal={this.closeModal} status="success" />;
-    } else if (this.state.errorModal) {
-      modalRender = <Modal closeModal={this.closeModal} status="error" />;
-    }
+  const closeModal = () => {
+    setSuccessModal(false);
+    setErrorModal(false);
+  };
 
-    return (
-      <div id="contact">
-        {modalRender}
-        <div className="wrapper">
-          <Title title="Contactanos." />
-          <p className="font12">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt<br></br>ut labore et dolore magna aliqua.
-          </p>
+  let submitButtonRender = (
+    <div className="small__button">
+      <button aria-label="send message" type="submit" value="Send Message">
+        Enviar Mensaje
+      </button>
+    </div>
+  );
 
-          <Row className="padding40">
-            <Col md={12} lg={6}>
-              <form id="contact-form" onSubmit={this.handleSubmit}>
-                <h4 className="font30 weight800 padding30">Envianos un Mensaje.</h4>
-                <input type="text" placeholder="Nombre" required name="name" value={this.state.name} onChange={this.inputHandler} />
-                <input type="email" placeholder="Email" required name="email" value={this.state.email} onChange={this.inputHandler} />
-                <textarea
-                  rows="6"
-                  cols="50"
-                  placeholder="Mensaje﻿..."
-                  required
-                  name="message"
-                  value={this.state.message}
-                  onChange={this.inputHandler}
-                ></textarea>
-                {submitButtonRender}
-              </form>
-            </Col>
-            <Col md={12} lg={6}>
-              <div className="flex-center">
-                <img src={ContactBackground} alt="contact background" />
-              </div>
-            </Col>
-          </Row>
-          <ContactInfo />
-          <ContactSocial />
+  if (sending) {
+    submitButtonRender = (
+      <div className="small__button sending-btn">
+        <div className="flex-center">
+          <div className="sbl-circ"></div>
         </div>
       </div>
     );
   }
-}
+
+  let modalRender = null;
+
+  if (successModal) {
+    modalRender = <Modal closeModal={closeModal} status="success" />;
+  } else if (errorModal) {
+    modalRender = <Modal closeModal={closeModal} status="error" />;
+  }
+
+  return (
+    <div id="contact">
+      {modalRender}
+      <div className="wrapper">
+        <Title title="Contactanos." />
+        <p className="font12">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt<br></br>ut labore et dolore magna aliqua.
+        </p>
+
+        <Row className="padding40">
+          <Col md={12} lg={6}>
+            <form ref={form} onSubmit={handleSubmit}>
+              <h4 className="font30 weight800 padding30">Envianos un Mensaje.</h4>
+              <input type="text" placeholder="Nombre" required name="user_name" value={name} onChange={inputHandler} />
+              <input type="email" placeholder="Email" required name="user_email" value={email} onChange={inputHandler} />
+              <textarea
+                rows="6"
+                cols="50"
+                placeholder="Mensaje﻿..."
+                required
+                name="message"
+                value={message}
+                onChange={inputHandler}
+              ></textarea>
+              {submitButtonRender}
+            </form>
+          </Col>
+          <Col md={12} lg={6}>
+            <div className="flex-center">
+              <img src={ContactBackground} alt="contact background" />
+            </div>
+          </Col>
+        </Row>
+        <ContactInfo />
+        <ContactSocial />
+      </div>
+    </div>
+  );
+};
 
 export default Contact;
