@@ -6,7 +6,7 @@ import "./navbar.scss";
 import CloseIcons from '../../assets/navbar/mobile-close.svg';
 import Logo from '../../assets/footer/LogoFooter.png';
 
-const handleDownload = () => window.open("/Proforma.doc", "_blank")
+const handleDownload = () => window.open("/Proforma.zip", "_blank")
 
 const mobileNav = (props) => (
   <div className={`mobile__navbar ${props.isOpen ? "mobile__open" : ""}`}>

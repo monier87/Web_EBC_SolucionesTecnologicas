@@ -4,7 +4,7 @@ import { Link } from "react-scroll";
 import Logo from '../../assets/footer/LogoFooter.png';
 import MobileMenuIcon from '../../assets/navbar/mobile-menu.svg';
 
-const handleDownload = () => window.open("/Proforma.doc", "_blank")
+const handleDownload = () => window.open("/Proforma.zip", "_blank")
 
 const desktopNav = (props) => (
   <nav className={`Navbar ${!props.userIsScrolled ? "extraLargeNavbar" : ""}`} style={{ backgroundColor: '#f0f0f0' }}>
