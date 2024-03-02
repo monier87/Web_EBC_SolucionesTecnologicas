@@ -13,8 +13,8 @@ const about = () => (
     <div className="wrapper">
       <Title title="Quienes somos?" />
       <p className="font12">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt<br></br>ut labore et dolore magna aliqua.
+        Descripcion de la Empresa, su objeto social, Tiempo de Fundada. Mision y Vision. Cantidad de transition
+        trabajadores etc......<br></br>Otros aspectos que Ronal o Annia consideren.
       </p>
       <Row>
         <Col md={12} lg={4}>

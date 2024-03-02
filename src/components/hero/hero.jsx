@@ -5,9 +5,10 @@ import './hero.scss';
 import HeroImage1 from '../../assets/hero/hero-image.png';
 import HeroImage2 from '../../assets/hero/hero-image-2.png';
 import HeroImage3 from '../../assets/hero/hero-image-3.png';
+import HeroImage5 from '../../assets/hero/hero-image-5.png'
 import Button from '../ui-components/button/button';
 
-const images = [HeroImage1, HeroImage2, HeroImage3];
+const images = [HeroImage1, HeroImage2, HeroImage3, HeroImage5];
 
 const Hero = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
