@@ -18,10 +18,10 @@ const about = () => (
       </p>
       <Row>
         <Col md={12} lg={4}>
-          <TeamBox avatar={Person01} name="Luke Skywalker" job="Web designer" />
+          <TeamBox avatar={Person01} name="Ronal Bolaño" job="Presidente" />
         </Col>
         <Col md={12} lg={4}>
-          <TeamBox avatar={Person02} name="Han Solo" job="Graphic Designer" />
+          <TeamBox avatar={Person02} name="Ania Cortes" job="Directora Ejecutiva" />
         </Col>
         <Col md={12} lg={4}>
           <TeamInfo />
