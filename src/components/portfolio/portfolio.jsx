@@ -11,6 +11,9 @@ import Preview3 from "../../assets/portfolio/project03/preview.png";
 import Preview4 from "../../assets/portfolio/project04/preview.png";
 import Preview5 from "../../assets/portfolio/project05/preview.png";
 import Preview6 from "../../assets/portfolio/project06/preview.png";
+import Preview7 from "../../assets/portfolio/project07/preview.png";
+import Preview8 from "../../assets/portfolio/project07/preview.png";
+import Preview9 from "../../assets/portfolio/project07/preview.png";
 //Components
 import Button from "../ui-components/button/button";
 import Title from "../ui-components/title/title";
@@ -25,45 +28,63 @@ class Portfolio extends React.Component {
         {
           id: "1",
           preview: Preview1,
-          title: "Lamp",
-          tag: "branding",
+          title: "Impresoras",
+          tag: "hardware",
         },
         {
           id: "2",
           preview: Preview2,
-          title: "Smartwatch",
-          tag: "web",
+          title: "Reparación TV",
+          tag: "electronica",
         },
         {
           id: "3",
           preview: Preview3,
-          title: "Speakerphone",
-          tag: "illustrations",
+          title: "Reparacion y Montaje",
+          tag: "climatizacion",
         },
         {
           id: "4",
           preview: Preview4,
-          title: "Sneakers",
-          tag: "web",
+          title: "Reparacion y Mantenimiento",
+          tag: "electronica",
         },
         {
           id: "5",
           preview: Preview5,
-          title: "Label",
-          tag: "illustrations",
+          title: "Refrigeracion domestica",
+          tag: "climatizacion",
         },
         {
           id: "6",
           preview: Preview6,
-          title: "lemons",
-          tag: "branding",
+          title: "Refrigeracion domestica",
+          tag: "climatizacion",
+        },
+        {
+          id: "7",
+          preview: Preview7,
+          title: "Relleno de Cartuchos",
+          tag: "hardware",
+        },
+        {
+          id: "8",
+          preview: Preview8,
+          title: "Relleno de Cartuchos",
+          tag: "hardware",
+        },
+        {
+          id: "9",
+          preview: Preview9,
+          title: "Relleno de Cartuchos",
+          tag: "hardware",
         },
       ],
       // PORTFOLIO GALLERY WILL LOAD THIS AFTER FUNCTION "filterGallery" FINISH FILTERING
       filterResult: null,
       pickedFilter: "all",
       filterMenuActive: false,
-      pickedFilterDropdown: "NEWEST"
+      pickedFilterDropdown: "RECIENTES"
     };
   }
 
@@ -83,7 +104,7 @@ class Portfolio extends React.Component {
       result = projectsArr;
     }
 
-    this.setState({ filterResult: result, pickedFilter: target, pickedFilterDropdown: "NEWEST" });
+    this.setState({ filterResult: result, pickedFilter: target, pickedFilterDropdown: "RECIENTES" });
   };
 
   // FILTER DROP DOWN HOVER MENU FUNCTION
@@ -102,9 +123,9 @@ class Portfolio extends React.Component {
     let projectsArr = [...this.state.filterResult];
     let result;
 
-    if (filter === "NEWEST") {
+    if (filter === "RECIENTES") {
       result = projectsArr.sort((a, b) => (a.id > b.id ? 1 : -1));
-    }else if (filter === "OLDEST") {
+    }else if (filter === "ANTERIORES") {
       result = projectsArr.sort((a, b) => (a.id > b.id ? 1 : -1)).reverse();
     }
 
@@ -132,11 +153,11 @@ class Portfolio extends React.Component {
     if(this.state.filterMenuActive) {
       filterDroppDown = (
         <div className="portfolio__filter-menu shadow">
-          <p className="font12" onClick={() => this.filterDropDownHandler("NEWEST")}>
-            NEWEST
+          <p className="font12" onClick={() => this.filterDropDownHandler("RECIENTES")}>
+            RECIENTES
           </p>
-          <p className="font12" onClick={() => this.filterDropDownHandler("OLDEST")}>
-            OLDEST
+          <p className="font12" onClick={() => this.filterDropDownHandler("ANTERIORES")}>
+            ANTERIORES
           </p>
         </div>
       );
@@ -151,29 +172,29 @@ class Portfolio extends React.Component {
               <div className="portfolio__nav">
                 <ul>
                   <li className={this.state.pickedFilter === "all" ? "portfolio__nav-active font12" : "font12"} onClick={() => this.filterGallery("all")}>
-                    ALL
+                    TODOS
                   </li>
                   <li
                     className={this.state.pickedFilter === "branding" ? "portfolio__nav-active font12" : "font12"}
-                    onClick={() => this.filterGallery("branding")}
+                    onClick={() => this.filterGallery("hardware")}
                   >
-                    BRANDING
+                    HARDWARE
                   </li>
                   <li
-                    className={this.state.pickedFilter === "illustrations" ? "portfolio__nav-active font12" : "font12"}
-                    onClick={() => this.filterGallery("illustrations")}
+                    className={this.state.pickedFilter === "OLDESTillustrations" ? "portfolio__nav-active font12" : "font12"}
+                    onClick={() => this.filterGallery("climatizacion")}
                   >
-                    ILLUSTRATIONS
+                    CLIMATIZACION
                   </li>
-                  <li className={this.state.pickedFilter === "web" ? "portfolio__nav-active font12" : "font12"} onClick={() => this.filterGallery("web")}>
-                    WEB
+                  <li className={this.state.pickedFilter === "web" ? "portfolio__nav-active font12" : "font12"} onClick={() => this.filterGallery("electronica")}>
+                    ELECTRONICA
                   </li>
                 </ul>
               </div>
             </Col>
             <Col xs={12} sm={12} md={4} lg={3}>
               <div className="portfolio__filter" onMouseEnter={() => this.filterMenuHover(true)} onMouseLeave={() => this.filterMenuHover(false)}>
-                <p className="font12">{this.state.pickedFilterDropdown} FIRST</p>
+                <p className="font12">{this.state.pickedFilterDropdown} PRIMERO</p>
                 <img src={Arrow} alt="arrow" />
                 {filterDroppDown}
               </div>
