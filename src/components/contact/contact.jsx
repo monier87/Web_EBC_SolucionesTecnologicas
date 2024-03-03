@@ -92,7 +92,8 @@ const Contact = () => {
       <div className="wrapper">
         <Title title="Contactanos." />
         <p className="font12">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt<br></br>ut labore et dolore magna aliqua.
+          Somos tu mejor opcion para la solucion integral a todo tu equipamiento domestico e industrial. 
+          No dudes en contartarnos ahora!!
         </p>
 
         <Row className="padding40">

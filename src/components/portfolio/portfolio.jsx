@@ -12,8 +12,8 @@ import Preview4 from "../../assets/portfolio/project04/preview.png";
 import Preview5 from "../../assets/portfolio/project05/preview.png";
 import Preview6 from "../../assets/portfolio/project06/preview.png";
 import Preview7 from "../../assets/portfolio/project07/preview.png";
-import Preview8 from "../../assets/portfolio/project07/preview.png";
-import Preview9 from "../../assets/portfolio/project07/preview.png";
+import Preview8 from "../../assets/portfolio/project08/preview.png";
+import Preview9 from "../../assets/portfolio/project09/preview.png";
 //Components
 import Button from "../ui-components/button/button";
 import Title from "../ui-components/title/title";
@@ -58,26 +58,26 @@ class Portfolio extends React.Component {
         {
           id: "6",
           preview: Preview6,
-          title: "Refrigeracion domestica",
-          tag: "climatizacion",
-        },
-        {
-          id: "7",
-          preview: Preview7,
           title: "Relleno de Cartuchos",
           tag: "hardware",
         },
         {
+          id: "7",
+          preview: Preview7,
+          title: "Split Domestico",
+          tag: "climatizacion",
+        },
+        {
           id: "8",
           preview: Preview8,
-          title: "Relleno de Cartuchos",
+          title: "Reparacion y Mantenimiento a PC",
           tag: "hardware",
         },
         {
           id: "9",
           preview: Preview9,
-          title: "Relleno de Cartuchos",
-          tag: "hardware",
+          title: "Reparación TV",
+          tag: "electronica",
         },
       ],
       // PORTFOLIO GALLERY WILL LOAD THIS AFTER FUNCTION "filterGallery" FINISH FILTERING

@@ -41,8 +41,8 @@ const Hero = () => {
                 Somos EBC Soluciones Tecnológicas.
               </h4>
               <p className="font12">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                doeiusmod tempor incididunt ut labore et dolore magna aliqua
+                Somos tu mejor opcion, servicios integrales profesionales y los mejores
+                precios del Sector. 
               </p>
               <Button label="ENVIAR MENSAJE" target={'contact'} />
             </div>
