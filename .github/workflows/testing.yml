@@ -1,0 +1,46 @@
+name: testing
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  testing:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16.x
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build the React app
+        run: CI=false npm run build
+
+      - name: Deploy to S3
+        uses: jakejarvis/s3-sync-action@v0.5.1
+        with:
+          args: --follow-symlinks --delete
+        env:
+          AWS_S3_BUCKET: sebc.soluciones
+          SOURCE_DIR: dist
+          AWS_ACCESS_KEY_ID: AKIAVLK3PXK4XR7TE4HQ
+          AWS_SECRET_ACCESS_KEY: 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
+
+      - name: Invalidate CloudFront cache
+        uses: chetan/invalidate-cloudfront-action@v2
+        env:
+          DISTRIBUTION: ESH2N0X30DU3K
+          PATHS: "/*"
+          AWS_REGION: us-east-1
+          AWS_ACCESS_KEY_ID: AKIAVLK3PXK4XR7TE4HQ
+          AWS_SECRET_ACCESS_KEY: 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
+
